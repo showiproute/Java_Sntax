@@ -14,7 +14,7 @@ public class ObjectSumUp {
 
 		private String brand;
 		private String type;
-		
+		     
 		public HardwareInfo(String brand,String type) {
 			this.brand=brand;
 			this.type=type;
