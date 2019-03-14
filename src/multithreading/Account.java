@@ -84,8 +84,6 @@ public class Account {
 		finally {
 			lock.unlock();
 		}
-		
-		
 	}
 	
 	
