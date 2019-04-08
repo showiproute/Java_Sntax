@@ -1,8 +1,12 @@
 package JavaMianShi;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class ThreadSecurity {
 
 	public static class Account{
+		private final ReentrantLock lock=new ReentrantLock();
+		
 		/**
 		 * @return the accountNo
 		 */
@@ -39,13 +43,31 @@ public class ThreadSecurity {
 			this.balance=balance;
 		}
 		
-		public synchronized void draw(String threadName,double drawMoney) {
+//		public synchronized void draw(String threadName,double drawMoney) {
+//			if(this.getBalance()<drawMoney) {
+//				System.out.println(threadName+":"+"取款金额:"+drawMoney+"余额不足");
+//			}else {
+//				System.out.println(threadName+":"+"取款金额:"+drawMoney+"取款成功");
+//				this.setBalance(this.getBalance()-drawMoney);
+//				System.out.println(threadName+":"+"余额更新为:"+this.getBalance());
+//			}
+//		}
+		public void draw(String threadName,double drawMoney) {
+			
+			lock.lock();
+			try {
 			if(this.getBalance()<drawMoney) {
 				System.out.println(threadName+":"+"取款金额:"+drawMoney+"余额不足");
 			}else {
 				System.out.println(threadName+":"+"取款金额:"+drawMoney+"取款成功");
 				this.setBalance(this.getBalance()-drawMoney);
 				System.out.println(threadName+":"+"余额更新为:"+this.getBalance());
+			}
+			}catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				lock.unlock();
 			}
 		}
 	}
