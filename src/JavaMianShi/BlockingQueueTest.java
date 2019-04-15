@@ -5,7 +5,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 import multithreading.Customer;
 
 public class BlockingQueueTest {
-
+	
+	
 	public static class Producer implements Runnable{
 		
 		private ArrayBlockingQueue<String> queue;
