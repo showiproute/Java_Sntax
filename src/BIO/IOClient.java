@@ -3,8 +3,7 @@ package BIO;
 import java.net.Socket;
 import java.util.Date;
 
-import BIO.IOClient.ThreadClient;
-import BIO.IOServer.ServerHandler;
+
 
 public class IOClient {
 
@@ -53,12 +52,7 @@ public class IOClient {
 	public static void main(String[] args) throws Exception {
 		ThreadClient threadClient = new ThreadClient("线程1");
 		new Thread(threadClient).start();;
-		
 		Thread.sleep(5000);
-		
-		
-		
-		
 		
 	}
 	
