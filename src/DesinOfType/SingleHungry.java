@@ -12,23 +12,18 @@ package DesinOfType;
 
 public class SingleHungry {
 
-	//直接创建对象给类成员
 	private static final SingleHungry INSTANCE=new SingleHungry();
 	
-	//构造器私有
-	private SingleHungry() {}
+	private  SingleHungry() {}
 	
-	public static SingleHungry getInstace() {
+	public static SingleHungry getSingleHungry() {
 		return INSTANCE;
 	}
 	
-	
 	public static void main(String[] args) {
-		SingleHungry s4 = SingleHungry.getInstace();
-		SingleHungry s5 = SingleHungry.getInstace();
-		
-		System.out.println(s4==s5);
-		System.out.println(s4.equals(s5));
-		
+		SingleHungry s1 = SingleHungry.getSingleHungry();
+		SingleHungry s2 = SingleHungry.getSingleHungry();
+		System.out.println(s1==s2);
 	}
+	
 }
